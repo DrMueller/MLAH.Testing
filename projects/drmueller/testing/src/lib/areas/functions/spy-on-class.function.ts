@@ -1,4 +1,3 @@
-
 import { Type } from '@angular/core';
 import { SpyOf } from '../types/spy-of.type';
 

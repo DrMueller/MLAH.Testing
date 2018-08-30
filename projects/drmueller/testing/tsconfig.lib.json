@@ -15,8 +15,11 @@
     "lib": [
       "dom",
       "es2015"
-    ]
+    ],
   },
+  "types": [
+    "jasmine"
+  ],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
