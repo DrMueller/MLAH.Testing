@@ -21,6 +21,16 @@ steps:
     customCommand: 'run ng lint'
 
 
+- task: Npm@1
+  displayName: 'NG Unit Tests'
+  inputs:
+    command: custom
+
+    verbose: false
+
+    customCommand: 'run test-lib-headless'
+
+
 - powershell: ./ scripts/UpdatePackageVersion.ps1 
   arguments: '-buildVersion $(Build.BuildNumber)'
 
