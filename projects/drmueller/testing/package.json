@@ -4,6 +4,8 @@
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "jasmine-core": "^2.99.1"
+    "jasmine-core": "^2.99.1",
+    "@types/jasmine": "~2.8.6",
+    "@types/jasminewd2": "~2.0.3"
   }
 }
