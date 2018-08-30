@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "@drmueller/testing": {
+      "root": "projects/drmueller/testing",
+      "sourceRoot": "projects/drmueller/testing/src",
+      "projectType": "library",
+      "prefix": "drm",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/drmueller/testing/tsconfig.lib.json",
+            "project": "projects/drmueller/testing/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/drmueller/testing/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/drmueller/testing/src/test.ts",
+            "tsConfig": "projects/drmueller/testing/tsconfig.spec.json",
+            "karmaConfig": "projects/drmueller/testing/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/drmueller/testing/tsconfig.lib.json",
+              "projects/drmueller/testing/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "testing-demo"
