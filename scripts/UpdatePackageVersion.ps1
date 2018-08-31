@@ -42,6 +42,9 @@ foreach ($packageFile in $packageFiles) {
 
   write-host $newVersionString
 
+  # The git commands are needed, since version can only be updated on a clean git repo --> https://github.com/npm/npm/issues/6879
+  git add .
+  git commit 
   npm version $buildVersion
 
   # $packageContent = Get-Content $packageFile
