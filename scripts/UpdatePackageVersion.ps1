@@ -42,7 +42,9 @@ foreach ($packageFile in $packageFiles) {
 
   write-host $newVersionString
 
-  $packageContent = Get-Content $packageFile
-  $replaced = $packageContent -replace '"version": "0.0.1"', $newVersionString
-  Set-Content -Path $packageFile -value $replaced
+  npm version $buildVersion
+
+  # $packageContent = Get-Content $packageFile
+  # $replaced = $packageContent -replace '"version": "0.0.1"', $newVersionString
+  # Set-Content -Path $packageFile -value $replaced
 }
