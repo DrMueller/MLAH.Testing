@@ -7,8 +7,8 @@ function getPackageFiles() {
 
   Write-Host 'I am here: ' $PSScriptRoot
 
-  $mainPackage = Get-ChildItem -File ($PSScriptRoot + '/../*package.json')
-  $packageFiles.Add($mainPackage)
+  # $mainPackage = Get-ChildItem -File ($PSScriptRoot + '/../*package.json')
+  # $packageFiles.Add($mainPackage)
 
   $libPackages = Get-ChildItem -File ($PSScriptRoot + '/../projects/package.json') -Recurse -Force
 
