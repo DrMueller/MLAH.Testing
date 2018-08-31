@@ -1,3 +1,5 @@
+/// <reference path="../../node_modules/@types/jasmine/index.d.ts" />
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  public test(): void {
+    let tra: jasmine.Any;
+  }
 }
