@@ -7,8 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-
-  public test(): void {
-    let tra: jasmine.Any;
-  }
 }
