@@ -1,1 +1,2 @@
-export * from './lib/areas';
+export * from './lib/areas/jasmine-extensions';
+export * from './lib/areas/page-objects';
