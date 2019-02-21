@@ -1,10 +1,7 @@
-import { Injectable, Type } from '@angular/core';
+import { Type } from '@angular/core';
 
 import { SpyOf } from '../types';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class SpyFactoryService {
   public static createSpy<T>(spiedClass: Type<T>): SpyOf<T> {
     const functionNames = this.getFunctionNames(spiedClass).map(f => f.propName);

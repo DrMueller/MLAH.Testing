@@ -1,12 +1,9 @@
-import { Injectable, Type } from '@angular/core';
+import { Type } from '@angular/core';
 
 import { SpyOf } from '..';
 
 import { SpyFactoryService } from './spy-factory.service';
 
-@Injectable({
-  providedIn: 'root'
-})
 export class MockProviderService {
   public static provideMock<T>(spiedClass: Type<T>) {
     return {
