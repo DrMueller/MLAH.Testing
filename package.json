@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "ci-build-lib-prod": "ng build @drmueller/testing --prod",
     "ci-unit-test-lib": "ng run @drmueller/testing:unit-test",
-    "ci-lint-lib": "tslint --project projects/drmueller/testing/tslint.json --format junit --out projects/drmueller/testing/testresults/lint-tests.xml",
+    "ci-lint-lib": "tslint --project projects/drmueller/testing/tslint.json --format junit",
     "local-unit-test-lib": "ng test @drmueller/testing"
   },
   "private": true,

@@ -8,27 +8,30 @@ import { SpyOf } from '../types';
 export class SpyFactoryService {
   public static createSpy<T>(spiedClass: Type<T>): SpyOf<T> {
     const functionNames = this.getFunctionNames(spiedClass).map(f => f.propName);
-    const spyWithFunctions = jasmine.createSpyObj('spy', [...functionNames]);
 
+    // Add the functions
+    const result = jasmine.createSpyObj('spy', [...functionNames]);
+
+    // Add "empty" setters per setter property of the spied Class
     this.getSetters(spiedClass)
       .map(prop => {
-        Object.defineProperty(spyWithFunctions, prop.propName, {
+        Object.defineProperty(result, prop.propName, {
           set: function () {
           }
         });
       });
 
+    // Add getters, which return undefined, for each getter property of the spied Class
     this.getGetters(spiedClass)
       .map(prop => {
-        const spy = jasmine.createSpy(prop.propName);
-        Object.defineProperty(spyWithFunctions, prop.propName, {
+        Object.defineProperty(result, prop.propName, {
           get: function () {
-            return spy;
+            return undefined;
           }
         });
       });
 
-    return spyWithFunctions;
+    return result;
   }
 
   private static getFunctionNames<T>(spiedClass: Type<T>): { propName: string, propDescr: PropertyDescriptor }[] {

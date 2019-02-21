@@ -29,7 +29,7 @@ describe('SpyFactoryService', () => {
       const lastName = 'Matthias';
 
       beforeEach(() => {
-        individualSpy.lastName.and.returnValue(lastName);
+        spyOnProperty(individualSpy, 'lastName', 'get').and.returnValue(lastName);
       });
 
       // Incoming Event
@@ -37,13 +37,56 @@ describe('SpyFactoryService', () => {
         let actualLastName: any;
 
         beforeEach(() => {
-          actualLastName = individualSpy.lastName();
+          actualLastName = individualSpy.lastName;
         });
 
         it('Then the getter value is returned', () => {
           expect(actualLastName).toEqual(lastName);
         });
       });
+    });
+
+    // Scenario
+    describe('Given a spy on a setter is set', () => {
+      let firstNameSetterSpy: jasmine.Spy;
+
+      beforeEach(() => {
+        firstNameSetterSpy = spyOnProperty(individualSpy, 'firstName', 'set');
+      });
+
+      // Incoming Event
+      describe('When the setter is called', () => {
+        beforeEach(() => {
+          (<any>individualSpy).firstName = 'Hello';
+        });
+
+        it('Then the setter has been called', () => {
+          expect(firstNameSetterSpy).toHaveBeenCalled();
+        });
+      });
+    });
+
+    // Scenario
+    describe('Given a method spy return value is set', () => {
+      const fullName = 'Matthias Müller';
+
+      beforeEach(() => {
+        individualSpy.createFullName.and.returnValue(fullName);
+      });
+
+      // Incoming Event
+      describe('When the method is called', () => {
+        let actualFullName: string;
+
+        beforeEach(() => {
+          actualFullName = individualSpy.createFullName();
+        });
+
+        it('Then the set value is returned', () => {
+          expect(actualFullName).toEqual(fullName);
+        });
+      });
+
     });
   });
 });
