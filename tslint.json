@@ -75,7 +75,7 @@
       "ignore-params"
     ],
     "no-misused-new": true,
-    "no-non-null-assertion": true,
+    "no-non-null-assertion": false,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-string-throw": true,
@@ -92,6 +92,15 @@
       "check-catch",
       "check-else",
       "check-whitespace"
+    ],
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "module-source-path": "full",
+        "grouped-imports": "true"
+      }
     ],
     "prefer-const": true,
     "quotemark": [

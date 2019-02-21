@@ -148,6 +148,14 @@
             "karmaConfig": "projects/drmueller/testing/karma.conf.js"
           }
         },
+        "unit-test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/drmueller/testing/src/test.ts",
+            "tsConfig": "projects/drmueller/testing/tsconfig.spec.json",
+            "karmaConfig": "projects/drmueller/testing/karma-ci-unit-tests.conf.js"
+          }
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {

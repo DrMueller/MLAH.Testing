@@ -1,0 +1,82 @@
+name: 2.1$(rev:.r) # build numbering format
+
+resources:
+- repo: self
+queue:
+  name: Hosted VS2017
+  demands: npm
+
+variables:
+  LibraryName: 'TODO'
+steps:
+- task: Npm@1
+  displayName: 'Install NPM Packages'
+  inputs:
+    verbose: false
+
+
+- task: Npm@1
+  displayName: 'Lint'
+  inputs:
+    command: custom
+
+    verbose: false
+
+    customCommand: 'run ci-lint-lib'
+
+
+- task: Npm@1
+  displayName: 'Run Unit Tests'
+  inputs:
+    command: custom
+
+    verbose: false
+
+    customCommand: 'run ci-unit-test-lib'
+
+  
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFiles: '**/testresults/*-tests.xml'
+
+    failTaskOnFailedTests: true
+
+  condition: succeededOrFailed()
+
+
+- task: Npm@1
+  displayName: 'Build for Production'
+  inputs:
+    command: custom
+
+    verbose: false
+
+    customCommand: 'run ci-build-lib-prod'
+
+
+- task: Npm@1
+  displayName: 'Update Version'
+  inputs:
+    command: custom
+
+    workingDir: 'dist/drmueller/$(LibraryName)'
+
+    verbose: false
+
+    customCommand: 'version $(Build.BuildNumber)'
+
+
+- task: Npm@1
+  displayName: 'Publish'
+  inputs:
+    command: custom
+
+    workingDir: 'dist/drmueller/$(LibraryName)'
+
+    verbose: false
+
+    customCommand: 'publish --access public'
+
+    customEndpoint: 'NPM-DrMueller'
+

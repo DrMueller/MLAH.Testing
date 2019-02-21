@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ci-build-lib-prod": "ng build @drmueller/testing --prod",
+    "ci-unit-test-lib": "ng run @drmueller/testing:unit-test",
+    "ci-lint-lib": "tslint --project projects/drmueller/testing/tslint.json --format junit --out projects/drmueller/testing/testresults/lint-tests.xml",
+    "local-unit-test-lib": "ng test @drmueller/testing"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +44,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "karma-junit-reporter": "^1.2.0",
     "ng-packagr": "^3.0.0-rc.2",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
