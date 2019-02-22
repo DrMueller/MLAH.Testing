@@ -33,8 +33,7 @@ export class SpyFactoryService {
   }
 
   private static getFunctionNames<T>(spiedClass: Type<T>): ObjectProperty[] {
-    return this.getObjects(spiedClass)
-      .filter(prop => prop.propertyDescriptor.value instanceof Function);
+    return this.getObjects(spiedClass).filter(prop => prop.propertyDescriptor.value instanceof Function);
   }
 
   private static getGetters<T>(spiedClass: Type<T>): ObjectProperty[] {
