@@ -3,6 +3,7 @@ import { Type } from '@angular/core';
 import { ObjectProperty } from '../models';
 import { SpyOf } from '../types';
 
+// @dynamic
 export class SpyFactoryService {
   public static createSpy<T>(spiedClass: Type<T>): SpyOf<T> {
     const functionNames = this.getFunctionNames(spiedClass).map(f => f.propertyName);
