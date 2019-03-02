@@ -1,7 +1,7 @@
 import { Type } from '@angular/core';
 
-import { ObjectProperty } from '../models';
-import { SpyOf } from '../types';
+import { ObjectProperty } from '../models/object-property.model';
+import { SpyOf } from '../types/spy-of.type';
 
 // @dynamic
 export class SpyFactoryService {

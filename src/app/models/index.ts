@@ -1,1 +1,1 @@
-export * from '../../../projects/drmueller/testing/src/lib/areas/jasmine-extensions/factories/individual.model';
+export * from '../../../projects/drmueller/testing/src/test-infrastructure/models/individual.model';

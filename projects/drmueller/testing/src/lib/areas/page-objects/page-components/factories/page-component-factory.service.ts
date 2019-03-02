@@ -1,6 +1,6 @@
 import { by, element, ElementFinder } from 'protractor';
 
-import { ICreatablableComponent } from '../models/base';
+import { ICreatablableComponent } from '../models/base/creatable-component.interface';
 
 export class PageComponentFactoryService {
   public static createByTestingAttribute<T>(ctor: ICreatablableComponent<T>, attributeName: string): T {

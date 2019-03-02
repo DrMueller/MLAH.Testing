@@ -1,6 +1,6 @@
 import { ElementFinder, promise } from 'protractor';
 
-import { BaseComponent } from '../base';
+import { BaseComponent } from '../base/base.component';
 
 export class InputComponent extends BaseComponent {
   public constructor(elementFinder: ElementFinder) {
