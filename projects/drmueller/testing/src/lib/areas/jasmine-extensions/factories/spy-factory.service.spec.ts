@@ -1,8 +1,8 @@
 import { inject, TestBed } from '@angular/core/testing';
+import { Individual } from 'src/app/models';
 
-import { SpyOf } from '../types';
+import { SpyOf } from '../types/spy-of.type';
 
-import { Individual } from '.';
 import { SpyFactoryService } from './spy-factory.service';
 
 describe('SpyFactoryService', () => {
